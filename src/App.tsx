@@ -24,7 +24,7 @@ function App() {
 
   return (
     <>
-      <>App Page</>
+      <h1>Expense List</h1>
       <ExpenseListForm
         onSubmit={(data) => {
           setExpenses([...expenses, { ...data, id: parseInt(uuidv4()) }]);
@@ -37,7 +37,9 @@ function App() {
       <br></br>
       <ExpenseList
         expenses={visibleExpenses}
-        onDelete={(id) => setExpenses(expenses.filter((e) => e.id !== id))}
+        onDelete={(id) => {
+          setExpenses(expenses.filter((e) => e.id !== id));
+        }}
       />
     </>
   );
